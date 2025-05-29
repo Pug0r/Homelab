@@ -1,0 +1,12 @@
+services:
+  audiobookshelf:
+    image: ghcr.io/advplyr/audiobookshelf:2.23.0
+    ports:
+      - 13378:80
+    volumes:
+      - ${EXTERNAL_MEMORY}/data/audiobooks:/audiobooks
+      - ${EXTERNAL_MEMORY}/data/podcasts:/podcasts
+      - ${PROJECT_ROOT}/data/audiobookshelf/config:/config
+      - ${PROJECT_ROOT}/data/audiobookshelf/metadata:/metadata
+    environment:
+      - TZ=Poland/Warsaw
