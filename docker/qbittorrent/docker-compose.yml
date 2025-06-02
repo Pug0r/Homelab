@@ -1,0 +1,16 @@
+---
+services:
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:5.1.0
+    container_name: qbittorrent
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - WEBUI_PORT=8080
+      - TORRENTING_PORT=6881
+    volumes:
+      - ${PROJECT_ROOT}/data/qbittorrent:/config
+      - ${EXTERNAL_MEMORY}/data/downloads:/downloads #optional
+    restart: unless-stopped

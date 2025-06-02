@@ -3,6 +3,8 @@
 ## ToDo
  - [ ] Migrate all services
  - [ ] Get rid of portainer
+ - [ ] Add gluetun to get rid of host level VPN
+ - [ ] Test setup to be healthy when restarting server
  - [ ] Setup monitoring for cloudflared 
  - [ ] Setup internal services monitoring
  - [ ] Configure nginx proxy managera
