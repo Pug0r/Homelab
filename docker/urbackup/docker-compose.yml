@@ -1,0 +1,13 @@
+services:
+  urbackup:
+    image: uroni/urbackup-server:2.5.x
+    container_name: urbackup
+    restart: unless-stopped
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Warsaw
+    volumes:
+      - ${PROJECT_ROOT}/data/urbackup:/var/urbackup
+      - ${EXTERNAL_MEMORY}/data/backups:/backups
+    network_mode: "host"
