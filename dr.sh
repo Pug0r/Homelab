@@ -1,12 +1,39 @@
 #!/bin/bash
 
-if [[ "$2" = "up" ]]; then
-    docker compose --env-file .env -f docker/$1/docker-compose.yml up -d
-elif [[ "$2" = "down" ]]; then
-    docker compose -f docker/$1/docker-compose.yml down
-elif [[ "$2" = "restart" ]]; then
-    docker compose --env-file .env -f docker/$1/docker-compose.yml restart 
+usage="Usage: ./dr.sh <name> <up/down/restart> [--all]"
+
+if [ "$#" -lt 2 ]; then
+  echo $usage
+  exit 1
+fi
+
+name=$1
+action=$2
+all_flag=$3
+
+if [ "$all_flag" == "--all" ]; then
+  for dir in docker/*; do
+    if [[ "$action" == "up" ]]; then
+      docker compose --env-file .env -f $dir/docker-compose.yml up -d
+    elif [[ "$action" == "down" ]]; then
+      docker compose -f $dir/docker-compose.yml down
+    elif [[ "$action" == "restart" ]]; then
+      docker compose --env-file .env -f $dir/docker-compose.yml restart
+    else
+      echo $usage
+      exit 1
+    fi
+  done
 else
-    echo "Usage: ./dr.sh [name] [up/down/restart]"
+  if [[ "$action" == "up" ]]; then
+    docker compose --env-file .env -f docker/$name/docker-compose.yml up -d
+  elif [[ "$action" == "down" ]]; then
+    docker compose -f docker/$name/docker-compose.yml down
+  elif [[ "$action" == "restart" ]]; then
+    docker compose --env-file .env -f docker/$name/docker-compose.yml restart
+  else
+    echo $usage
+    exit 1
+  fi
 fi
 
