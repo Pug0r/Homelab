@@ -7,8 +7,9 @@
  - [ ] Test setup to be healthy when restarting server
  - [ ] Setup monitoring for cloudflared 
  - [ ] Setup internal services monitoring
- - [ ] Configure nginx proxy managera
- - [ ] Setup flow to paste link to yt video and for it to appear in audiobookshelf
+ - [ ] Configure nginx proxy manager
+ - [x] Setup flow to paste link to yt video and for it to appear in audiobookshelf
+ - [ ] Add some GUI for running scripts (write for yourself or check out OliveTin)
  - [ ] Migrate homepage config to use env variables
  - [ ] Add homelab visualisation file
  - [ ] Add hardware description
@@ -22,5 +23,4 @@
  - UrBackup
  - Kavita
  - Audiobookshelf
- - MeTube
 
