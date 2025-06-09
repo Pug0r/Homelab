@@ -1,0 +1,11 @@
+services:
+  recyclarr:
+    image: ghcr.io/recyclarr/recyclarr:7.4.0
+    container_name: recyclarr
+    user: 1000:1000
+    volumes:
+      - ${PROJECT_ROOT}/data/recyclarr/config:/config
+    environment:
+      - TZ=Europe/Warsaw
+      - RECYCLARR_CREATE_CONFIG=true
+    restart: unless-stopped
