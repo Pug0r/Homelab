@@ -1,0 +1,18 @@
+services:
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin:10.10.7
+    container_name: jellyfin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/CET
+    volumes:
+      - ${PROJECT_ROOT}/data/jellyfin:/config
+      - ${EXTERNAL_MEMORY}/data/tvshows:/data/tvshows
+      - ${EXTERNAL_MEMORY}/data/movies:/data/movies
+    ports:
+      - 8096:8096
+      - 7359:7359/udp #optional - to discover clients locally
+    devices:
+      - /dev/dri:/dev/dri # Pass through GPU
+    restart: unless-stopped
