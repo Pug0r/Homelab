@@ -9,6 +9,7 @@
  - [ ] Setup internal services monitoring
  - [ ] Configure nginx proxy manager
  - [x] Setup flow to paste link to yt video and for it to appear in audiobookshelf
+ - [ ] upgrade yt-audiobookshelf script with bulk downlaod option
  - [ ] Add some GUI for running scripts (write for yourself or check out OliveTin)
  - [ ] Migrate homepage config to use env variables
  - [ ] Add homelab visualisation file
