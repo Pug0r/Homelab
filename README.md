@@ -1,8 +1,8 @@
 # Homelab
 
 ## ToDo
- - [ ] Migrate all services
- - [ ] Get rid of portainer
+ - [x] Migrate all services
+ - [x] Get rid of portainer
  - [ ] Add gluetun to get rid of host level VPN
  - [ ] Test setup to be healthy when restarting server
  - [ ] Setup monitoring for cloudflared 
